@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home -Aimusic</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        nav {
+            background-color: grey;
+            height: 80px;
+            width: 100%;
+        }
+
+        .logo1 {
+            padding-left: 20px;
+            padding-top: 10px;
+            color: white;
+            width: 60;
+            height: 60px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 35px;
+            line-height: 80px;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            float: right;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 5px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 17px;
+            padding: 7px 13px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        a.active,
+        a:hover {
+            background-color: lightblue;
+            transition: .5s;
+        }
+
+        .background_container {
+            height: 120vh;
+            width: 100%;
+            background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+            background-size: 300% 300%;
+            animation: color 10s ease-in-out infinite;
+        }
+
+        @keyframes color {
+            0% {
+                background-position: 0 50%;
+            }
+
+            50% {
+                background-position: 100 50%;
+            }
+
+            100% {
+                background-position: 0 50%;
+            }
+        }
+
+        .Music-generator {
+            position: relative;
+            height: 100vh;
+        }
+
+        .content {
+            max-width: 700px;
+            color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+
+            height: 70vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        p {
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .generate-form {
+            height: 56px;
+
+            display: flex;
+            padding: 6px;
+            margin: 45px 0 15px;
+            background: #fff;
+            border-radius: 30px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .prompt-input {
+
+            font-size: 1rem;
+            outline: none;
+            border: none;
+            background: none;
+            padding: 0 17px;
+        }
+
+        .controls {
+            display: flex;
+            height: 100%;
+            gap: 15px;
+        }
+
+        .music-number {
+            outline: none;
+            border: none;
+            background: none;
+            font-size: 1rem;
+        }
+
+        .generate-button {
+            font-size: 1rem;
+            outline: none;
+            border: none;
+            color: #fff;
+            border-radius: 30px;
+            font-weight: 500;
+            padding: 0 25px;
+            cursor: pointer;
+            background: #19810f;
+        }
+
+        .generate-button:hover {
+            background-color: #2db82b;
+        }
+
+        .bottom_player {
+            position: sticky;
+            bottom: 0px;
+            height: 100px;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .player_icon {
+            margin-top: 20px;
+            display: flex;
+            cursor: pointer;
+        }
+
+        .backward {
+
+            padding-top: 5px;
+            padding-right: 5px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .play {
+
+            padding-top: 5px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .forward {
+
+            padding-top: 5px;
+            padding-left: 5px;
+            width: 30px;
+            height: 30px;
+        }
+
+        #music_player {
+            position: absolute;
+            
+            top:4vh ;
+            
+           
+            width: 150vh;
+        }
+
+        .music_icon_play {
+justify-content: space-around;
+            width: 15px;
+            height: 15px;
+        }
+
+        .music_items {
+
+            color: black;
+            height: 50px;
+            display: flex;
+            width: 80%;
+            margin: 12px 0;
+            align-items: center;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .cover {
+            width: 40px;
+            margin: 0 23px 0;
+
+        }
+
+        time {
+            margin: 0 23px;
+        }
+        .bottom_cover{
+            position: absolute;
+            left: 10vh;
+            width: 64px;
+            height: 64px;
+        }
+        .bottom_time{
+            position: absolute;
+            right: 15vh;
+            top: 4vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background_container">
+    <nav>
+        <img class="logo1" src="logo1.png" alt="logo">
+        <label class="logo">
+            Ai musIc
+        </label>
+        <ul>
+            <li><a class="active" href="homepage.html">Home</a></li>           
+            <li><a href="Playlist.html">Playlist</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Feedback.html">Feedback</a></li>
+            <li><a href="Profile.html">Profile</a></li>
+
+        </ul>
+    </nav>
+  
+        <section class="Music-generator">
+            <div class="content">
+                <h1>AI Music Composser</h1>
+                <p>Convert your text into a music within a second using this AI Music Composser.</p>
+                <form action="#" class="generate-form">
+                    <input type="text" class="prompt-input" placeholder="Describe what your want to hear" required>
+                    <div class="controls">
+                        <select class="music-number">
+                            <option value="1">1 music</option>
+                            <option value="2">2 music</option>
+                            <option value="3">3 music</option>
+                            <option value="4" selected>4 music</option>
+                        </select>
+                        <button type="submit" class="generate-button">Generate</button>
+                    </div>
+                </form>
+                <div class="music_list">
+                    <div class="music_items">
+                        <img class="cover" src="cover1.jpg" alt="1">
+                        <span>See You Again</span>
+                        <span class="music_play"><span class="time">03:49</span><span><img class="music_icon_play"
+                                    src="circle-play-regular.svg" alt="menu"></span></span>
+                    </div>
+                <div class="music_list">
+                    <div class="music_items">
+                        <img class="cover" src="cover2.jpg" alt="1">
+                        <span>Let Me Love You</span>
+                        <span class="music_play"><span class="time">05:34</span><span><img class="music_icon_play"
+                                    src="circle-play-regular.svg" alt="menu"></span></span>
+                    </div>
+                <div class="music_list">
+                    <div class="music_items">
+                        <img class="cover" src="cover3.jpg" alt="1">
+                        <span>Hymm For Weekend</span>
+                        <span class="music_play"><span class="time">05:34</span><span><img class="music_icon_play"
+                                    src="circle-play-regular.svg" alt="menu"></span></span>
+                    </div>
+                <div class="music_list">
+                    <div class="music_items">
+                        <img class="cover" src="cover4.jpg" alt="1">
+                        <span>Way Down We Go</span>
+                        <span class="music_play"><span class="time">05:34</span><span><img class="music_icon_play"
+                                    src="circle-play-regular.svg" alt="menu"></span></span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="bottom_player">
+            <input type="range" name="range" id="music_player" min="0" max="100">
+            <div class="player_icon">
+                <!-- fontawesome icons -->
+                <img class="backward" src="backward-step-solid.svg" alt="backward">
+                <img class="play" src="circle-play-regular.svg" alt="play">
+                <img class="forward" src="forward-step-solid.svg" alt="forward">
+            </div>
+            <img class="bottom_cover" src="cover1.jpg" alt="cover">
+            <span class="bottom_time">03:49</span>
+        </div>
+    </div>
+
+</body>
+
+</html>

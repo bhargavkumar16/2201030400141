@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback -Aimusic</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        nav {
+            background-color: grey;
+            height: 80px;
+            width: 100%;
+        }
+
+        .logo1 {
+            padding-left: 20px;
+            padding-top: 10px;
+            color: white;
+            width: 60;
+            height: 60px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 35px;
+            line-height: 80px;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            float: right;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 5px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 17px;
+            padding: 7px 13px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        a.active,
+        a:hover {
+            background-color: lightblue;
+            transition: .5s;
+        }
+
+        .background_container {
+            height: 120vh;
+            width: 100%;
+            background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+            background-size: 300% 300%;
+            animation: color 10s ease-in-out infinite;
+        }
+
+        @keyframes color {
+            0% {
+                background-position: 0 50%;
+            }
+
+            50% {
+                background-position: 100 50%;
+            }
+
+            100% {
+                background-position: 0 50%;
+            }
+        }
+
+        .txt {
+            width: 600px;
+            height: 150px;
+
+            margin-bottom: 8px;
+        }
+
+        .feedback-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btnfeedback {
+            outline: none;
+            cursor: pointer;
+            width: 50%;
+            border: none;
+            border-radius: 1rem;
+            padding: 1.5%;
+           background-color:  red;
+           font-weight: 600;
+           color: white;
+        }
+
+        .form-group {
+            border-radius: 1rem;
+
+        }
+
+        .feedback-container form {
+            padding: 14%;
+        }
+
+        .row {
+            margin-bottom: -7%;
+        }
+        h3{
+            margin-bottom: 6%;
+            margin-top: -10%;
+            text-align: center;
+            color: white;
+
+        }
+        p{
+            margin-top: 10px;
+            margin-bottom: 3px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background_container">
+        <nav>
+            <img class="logo1" src="logo1.png" alt="logo">
+            <label class="logo">
+                Ai musIc
+            </label>
+            <ul>
+
+                <li><a href="homepage.html">Home</a></li>
+                <li><a href="Playlist.html">Playlist</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a class="active" href="Feedback.html">Feedback</a></li>
+                <li><a href="Profile.html">Profile</a></li>
+
+            </ul>
+        </nav>
+        <div class="feedback-container">
+            <form method="post">
+                <h3>Give Us Your Importent Feedback</h3>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" class="name" placeholder=" Your Name:">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="name" placeholder=" Your Phone no:">
+                        </div>
+                        <div class="form-group">
+                            <p>Did You Get Your Music?</p>
+                            Yes<input type="radio" name="1" id="yes">
+                            No<input type="radio" name="1" id="no">
+                        </div>
+                        <textarea class="txt" placeholder="Your Suggestion"></textarea>
+                     
+                        <div class="col">
+                            <input type="email" class="forn-group" placeholder="Your Email">
+                            <p>Did You Satisfy With Our Services?</p>
+
+                            Yes<input type="radio" name="2">
+                            no<input type="radio" name="2">
+                        </div>
+                        <div class="form-group">
+                            <p>WhatNumber You Given Us Out Of 10</p>
+                            <input type="radio" name="3">
+                            <input type="radio" name="3">
+                            <input type="radio" name="3">
+                            <input type="radio" name="3">
+                            <input type="radio" name="3">
+                            <input type="radio" name="3">
+                            <input type="radio" name="3">
+                            <input type="radio" name="3">
+                            <input type="radio" name="3">
+                            <input type="radio" name="3">
+
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="btnsubmit" class="btnfeedback" value="Send Feedback">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

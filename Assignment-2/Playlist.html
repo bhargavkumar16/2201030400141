@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist -Aimusic</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        nav {
+            background-color: grey;
+            height: 80px;
+            width: 100%;
+        }
+
+        .logo1 {
+            padding-left: 20px;
+            padding-top: 10px;
+            color: white;
+            width: 60;
+            height: 60px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 35px;
+            line-height: 80px;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            float: right;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 5px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 17px;
+            padding: 7px 13px;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        a.active,
+        a:hover {
+            background-color: lightblue;
+            transition: .5s;
+        }
+
+        .background_container {
+            height: 120vh;
+            width: 100%;
+            background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+            background-size: 300% 300%;
+            animation: color 10s ease-in-out infinite;
+        }
+
+        @keyframes color {
+            0% {
+                background-position: 0 50%;
+            }
+
+            50% {
+                background-position: 100 50%;
+            }
+
+            100% {
+                background-position: 0 50%;
+            }
+        }
+
+        .Playlist {
+            color: white;
+        }
+
+        .cardContainer {
+
+            margin: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            position: relative;
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgb(83, 83, 83);
+        }
+
+        .card>* {
+            padding-top: 3px;
+        }
+
+        .cardicon {
+            opacity: 0;
+            color: white;
+            position: absolute;
+            top: 145px;
+            right: 14px;
+            width: 36px;
+            height: 36px;
+
+        }
+
+        .img.active,
+        .cardicon:hover {
+            opacity: 1;
+        }
+
+        .cardimage {
+            width: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            padding-top: 10px;
+            padding-left: 20px;
+        }
+
+        .list {
+            margin: 30px;
+            width: 120vh;
+            border-radius: 20px;
+            background-color: rgb(255, 255, 255);
+            padding: 30px;
+
+
+        }
+
+        .music_icon_play {
+            justify-content: space-around;
+            width: 15px;
+            height: 15px;
+        }
+         .list_title{
+            color: black;
+         }
+        .music_items {
+            background-color: rgba(3, 245, 3, 0.844);
+            border-radius: 30px;
+            color: black;
+            height: 50px;
+            display: flex;
+            width: 80%;
+            margin: 12px 0;
+            align-items: center;
+            padding: 20px;
+            justify-content: space-between;
+        }
+
+        .cover {
+            width: 40px;
+            margin: 0 23px 0;
+
+        }
+
+        time {
+            margin: 0 23px;
+        }
+
+        .bottom_player {
+            position: sticky;
+            bottom: 0px;
+            height: 100px;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #music_player {
+            position: absolute;
+
+            top: 4vh;
+
+
+            width: 150vh;
+        }
+
+        .player_icon {
+            margin-top: 20px;
+            display: flex;
+            cursor: pointer;
+        }
+
+        .backward {
+
+            padding-top: 5px;
+            padding-right: 5px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .play {
+
+            padding-top: 5px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .forward {
+
+            padding-top: 5px;
+            padding-left: 5px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .bottom_cover {
+            position: absolute;
+            left: 10vh;
+            width: 64px;
+            height: 64px;
+        }
+
+        .bottom_time {
+            color: black;
+            position: absolute;
+            right: 15vh;
+            top: 4vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background_container">
+    <nav>
+        <img class="logo1" src="logo1.png" alt="logo">
+        <label class="logo">
+            Ai musIc
+        </label>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a class="active" href="Playlist.html">Playlist</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Feedback.html">Feedback</a></li>
+            <li><a href="Profile.html">Profile</a></li>
+        </ul>
+    </nav>
+  
+        <div class="Playlist">
+            <h1> Ai Music -Playlist</h1>
+            <div class="cardContainer">
+                <div class="card">
+                    <div class="cardicon">
+                        <img class="active" src="circle-play-regular.svg" alt="play">
+                    </div>
+                    <img class="cardimage" src="happycard.jpg" alt="">
+                    <h2>Happy Hits!</h2>
+                    <p>Hits to boost your mood and fill you with happiness!</p>
+                </div>
+                <div class="card">
+                    <div class="cardicon">
+                        <img src="circle-play-regular.svg" alt="play">
+                    </div>
+                    <img class="cardimage" src="sadcard.jpg" alt="">
+                    <h2>Sad!</h2>
+                    <p>Hits to boost your mood and fill you with happiness!</p>
+                </div>
+                <div class="card">
+                    <div class="cardicon">
+                        <img src="circle-play-regular.svg" alt="play">
+                    </div>
+                    <img class="cardimage" src="chillcard.jpg" alt="">
+                    <h2>chill!</h2>
+                    <p>Hits to boost your mood and fill you with happiness!</p>
+                </div>
+                <div class="card">
+                    <div class="cardicon">
+                        <img src="circle-play-regular.svg" alt="play">
+                    </div>
+                    <img class="cardimage" src="focuscard.jpg" alt="">
+                    <h2>Stay Focus!</h2>
+                    <p>Hits to boost your mood and fill you with happiness!</p>
+                </div>
+                <div class="card">
+                    <div class="cardicon">
+                        <img src="circle-play-regular.svg" alt="play">
+                    </div>
+                    <img class="cardimage" src="housepartycard.jpg" alt="">
+                    <h2>Houseparty</h2>
+                    <p>Hits to boost your mood and fill you with happiness!</p>
+                </div>
+                <div class="card">
+                    <div class="cardicon">
+                        <img src="circle-play-regular.svg" alt="play">
+                    </div>
+                    <img class="cardimage" src="Alonecard.jpg" alt="">
+                    <h2>Alone Again!</h2>
+                    <p>Hits to boost your mood and fill you with happiness!</p>
+                </div>
+
+            </div>
+            <section class="list">
+                <h1 class="list_title">Happy Hits!</h1>
+                <div class="music_list">
+                    <div class="music_items">
+                        <img class="cover" src="cover1.jpg" alt="1">
+                        <span>See You Again</span>
+                        <span class="music_play"><span class="time">03:49</span><span><img class="music_icon_play"
+                                    src="circle-play-regular.svg" alt="menu"></span></span>
+                    </div>
+                    <div class="music_list">
+                        <div class="music_items">
+                            <img class="cover" src="cover2.jpg" alt="1">
+                            <span>Let Me Love You</span>
+                            <span class="music_play"><span class="time">05:34</span><span><img class="music_icon_play"
+                                        src="circle-play-regular.svg" alt="menu"></span></span>
+                        </div>
+                        <div class="music_list">
+                            <div class="music_items">
+                                <img class="cover" src="cover3.jpg" alt="1">
+                                <span>Hymm For Weekend</span>
+                                <span class="music_play"><span class="time">05:34</span><span><img
+                                            class="music_icon_play" src="circle-play-regular.svg"
+                                            alt="menu"></span></span>
+                            </div>
+                            <div class="music_list">
+                                <div class="music_items">
+                                    <img class="cover" src="cover4.jpg" alt="1">
+                                    <span>Way Down We Go</span>
+                                    <span class="music_play"><span class="time">05:34</span><span><img
+                                                class="music_icon_play" src="circle-play-regular.svg"
+                                                alt="menu"></span></span>
+                                </div>
+                            </div>
+            </section>
+            
+            <div class="bottom_player">
+                <input type="range" name="range" id="music_player" min="0" max="100">
+                <div class="player_icon">
+                    <!-- fontawesome icons -->
+                    <img class="backward" src="backward-step-solid.svg" alt="backward">
+                    <img class="play" src="circle-play-regular.svg" alt="play">
+                    <img class="forward" src="forward-step-solid.svg" alt="forward">
+                </div>
+                <img class="bottom_cover" src="cover1.jpg" alt="cover">
+                <span class="bottom_time">03:49</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
